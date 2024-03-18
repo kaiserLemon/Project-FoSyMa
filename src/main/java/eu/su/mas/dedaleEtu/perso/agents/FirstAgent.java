@@ -1,4 +1,4 @@
-package eu.su.mas.dedaleEtu.mas.agents.perso;
+package eu.su.mas.dedaleEtu.perso.agents;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,8 +7,7 @@ import eu.su.mas.dedale.mas.AbstractDedaleAgent;
 import eu.su.mas.dedale.mas.agent.behaviours.platformManagment.startMyBehaviours;
 
 import eu.su.mas.dedale.mas.agent.knowledge.MapRepresentation;
-import eu.su.mas.dedaleEtu.mas.behaviours.perso.FirstBehaviour;
-
+import eu.su.mas.dedaleEtu.perso.behaviours.FirstBehaviour;
 import jade.core.behaviours.Behaviour;
 
 public class FirstAgent extends AbstractDedaleAgent{

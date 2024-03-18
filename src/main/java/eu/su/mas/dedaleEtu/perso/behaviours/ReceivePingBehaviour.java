@@ -1,4 +1,4 @@
-package eu.su.mas.dedaleEtu.mas.behaviours.perso;
+package eu.su.mas.dedaleEtu.perso.behaviours;
 
 import jade.core.Agent;
 import jade.core.behaviours.TickerBehaviour;
@@ -16,11 +16,12 @@ public class ReceivePingBehaviour extends TickerBehaviour{
     @Override
     protected void onTick() {
         MessageTemplate msgTemplate = MessageTemplate.and(
-            MessageTemplate.MatchProtocol("PING"), 
+            MessageTemplate.MatchProtocol("PONG"), 
             MessageTemplate.MatchPerformative(ACLMessage.INFORM));
         ACLMessage msg = this.myAgent.receive(msgTemplate);
         if (msg != null) {
             sender = msg.getSender().getLocalName();
+            
         }
     }
 }

@@ -1,4 +1,4 @@
-package eu.su.mas.dedaleEtu.mas.behaviours.perso;
+package eu.su.mas.dedaleEtu.perso.behaviours;
 
 import java.util.List;
 import java.util.Iterator;
@@ -12,7 +12,6 @@ import eu.su.mas.dedale.mas.AbstractDedaleAgent;
 
 import eu.su.mas.dedale.mas.agent.knowledge.MapRepresentation;
 import eu.su.mas.dedale.mas.agent.knowledge.MapRepresentation.MapAttribute;
-
 import jade.core.behaviours.SimpleBehaviour;
 import jade.lang.acl.ACLMessage;
 import jade.lang.acl.MessageTemplate;
