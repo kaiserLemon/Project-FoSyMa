@@ -17,15 +17,15 @@ import jade.lang.acl.ACLMessage;
 import jade.lang.acl.MessageTemplate;
 import jade.lang.acl.UnreadableException;
 
-public class FirstBehaviour extends SimpleBehaviour {
+public class FirstBv extends SimpleBehaviour {
+
+    private static final long serialVersionUID = 1L;
 
     private boolean finished = false;
-
     private MapRepresentation myMap;
-
     private List<String> list_agentNames;
 
-    public FirstBehaviour(final AbstractDedaleAgent myAgent, MapRepresentation myMap, List<String> agentNames) {
+    public FirstBv(final AbstractDedaleAgent myAgent, MapRepresentation myMap, List<String> agentNames) {
         super(myAgent);
         this.myMap = myMap;
         this.list_agentNames = agentNames;
@@ -36,7 +36,7 @@ public class FirstBehaviour extends SimpleBehaviour {
 
         if(this.myMap == null){
             this.myMap = new MapRepresentation();
-            this.myAgent.addBehaviour(new FirstShareMapBehaviour(this.myAgent, 500, this.myMap, list_agentNames));
+            this.myAgent.addBehaviour(new FirstShareMapBv(this.myAgent, 500, this.myMap, list_agentNames));
         }
 
         Location myPosition = ((AbstractDedaleAgent)this.myAgent).getCurrentPosition();

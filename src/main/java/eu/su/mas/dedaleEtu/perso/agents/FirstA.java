@@ -7,10 +7,12 @@ import eu.su.mas.dedale.mas.AbstractDedaleAgent;
 import eu.su.mas.dedale.mas.agent.behaviours.platformManagment.startMyBehaviours;
 
 import eu.su.mas.dedale.mas.agent.knowledge.MapRepresentation;
-import eu.su.mas.dedaleEtu.perso.behaviours.FirstBehaviour;
+import eu.su.mas.dedaleEtu.perso.behaviours.FirstBv;
 import jade.core.behaviours.Behaviour;
 
-public class FirstAgent extends AbstractDedaleAgent{
+public class FirstA extends AbstractDedaleAgent{
+
+    private static final long serialVersionUID = 1L;
 
     private MapRepresentation myMap;
 
@@ -35,7 +37,7 @@ public class FirstAgent extends AbstractDedaleAgent{
 
         List<Behaviour> lb = new ArrayList<Behaviour>();
 
-        lb.add(new FirstBehaviour(this, this.myMap, list_agentNames));
+        lb.add(new FirstBv(this, this.myMap, list_agentNames));
 
         addBehaviour(new startMyBehaviours(this, lb));
 

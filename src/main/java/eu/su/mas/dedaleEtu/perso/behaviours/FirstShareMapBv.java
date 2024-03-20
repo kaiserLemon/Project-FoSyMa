@@ -14,12 +14,14 @@ import jade.core.Agent;
 import jade.core.behaviours.TickerBehaviour;
 import jade.lang.acl.ACLMessage;
 
-public class FirstShareMapBehaviour extends TickerBehaviour{
+public class FirstShareMapBv extends TickerBehaviour{
+
+    private static final long serialVersionUID = 1L;
 
     private MapRepresentation myMap;
     private List<String> receivers;
 
-    public FirstShareMapBehaviour(Agent a, long period,MapRepresentation mymap, List<String> receivers) {
+    public FirstShareMapBv(Agent a, long period,MapRepresentation mymap, List<String> receivers) {
         super(a, period);
         this.myMap=mymap;
         this.receivers=receivers;

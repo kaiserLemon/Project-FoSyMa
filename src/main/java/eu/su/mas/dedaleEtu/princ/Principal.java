@@ -9,7 +9,7 @@ import eu.su.mas.dedaleEtu.mas.agents.dummies.DummyMovingAgent;
 import eu.su.mas.dedaleEtu.mas.agents.dummies.DummyTankerAgent;
 import eu.su.mas.dedaleEtu.mas.agents.dummies.explo.ExploreCoopAgent;
 import eu.su.mas.dedaleEtu.mas.agents.dummies.explo.ExploreSoloAgent;
-import eu.su.mas.dedaleEtu.perso.agents.FirstAgent;
+import eu.su.mas.dedaleEtu.perso.agents.FirstA;
 import eu.su.mas.dedale.mas.AbstractDedaleAgent;
 import eu.su.mas.dedale.mas.agents.GateKeeperAgent;
 import eu.su.mas.dedale.mas.agents.dedaleDummyAgents.DummyWumpusShift;
@@ -347,7 +347,7 @@ public class Principal {
 		Object [] entityParametersExplo1={"FA2"};
 
 		//4) Give the class name of your agent to let the system instantiate it
-		ag=createNewDedaleAgent(c, agentName,FirstAgent.class.getName(), entityParametersExplo1);
+		ag=createNewDedaleAgent(c, agentName,FirstA.class.getName(), entityParametersExplo1);
 		//ag=createNewDedaleAgent(c, agentName, ExploreCoopAgent.class.getName(), entityParametersExplo1);//ExploreSoloAgent
 		agentList.add(ag);
 
@@ -365,7 +365,7 @@ public class Principal {
 		Object [] entityParametersExplo2={"FA1"};
 
 		//4) Give the class name of your agent to let the system instantiate it
-		ag=createNewDedaleAgent(c, agentName, FirstAgent.class.getName(), entityParametersExplo2);//ExploreSoloAgent
+		ag=createNewDedaleAgent(c, agentName, FirstA.class.getName(), entityParametersExplo2);//ExploreSoloAgent
 		agentList.add(ag);
 
 		
