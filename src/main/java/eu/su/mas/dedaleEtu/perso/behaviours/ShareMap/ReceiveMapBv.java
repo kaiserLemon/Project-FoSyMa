@@ -11,14 +11,19 @@ import jade.lang.acl.UnreadableException;
 
 public class ReceiveMapBv extends OneShotBehaviour{
 
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
   private MapRepresentation myMap;
-  private String sender;
+  private long waitingTime = 100;
 
   public ReceiveMapBv(Agent a, MapRepresentation myMap) {
     super(a);
     this.myMap = myMap;
+  }
+
+  public ReceiveMapBv(Agent a, long waitingTime, MapRepresentation myMap){
+    this(a, myMap);
+    this.waitingTime = waitingTime;
   }
 
   @Override
@@ -26,6 +31,7 @@ public class ReceiveMapBv extends OneShotBehaviour{
     MessageTemplate msgTemplate = MessageTemplate.and(
         MessageTemplate.MatchProtocol("SHARE-MAP"), 
         MessageTemplate.MatchPerformative(ACLMessage.INFORM));
+      this.myAgent.doWait(this.waitingTime);
     ACLMessage msg = this.myAgent.receive(msgTemplate);
     if (msg != null) {
         SerializableSimpleGraph<String,MapAttribute> sgreceived = null;
@@ -42,8 +48,4 @@ public class ReceiveMapBv extends OneShotBehaviour{
     return myMap;
   }
 
-  public String getSender(){
-    return sender;
-  }
-    
 }

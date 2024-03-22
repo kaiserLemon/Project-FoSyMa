@@ -1,6 +1,5 @@
 package eu.su.mas.dedaleEtu.perso.behaviours.ShareMap;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import jade.core.Agent;
@@ -12,13 +11,19 @@ public class ReceivePingBv extends OneShotBehaviour{
 
     private static final long serialVersionUID = 1L;
 
-    private List<String> senders = new ArrayList<>();
+    private List<String> senders;
     private int exitValue = 0;
     private String protocol = "PING";
+    private long waitingTime = 100;
 
-    public ReceivePingBv(Agent a, String protocol){
+    public ReceivePingBv(Agent a, String protocol, List<String> senders){
         super(a);
         this.protocol = protocol;
+    }
+
+    public ReceivePingBv(Agent a, long waitingTime, String protocol, List<String> senders){
+        this(a, protocol, senders);
+        this.waitingTime = waitingTime;
     }
 
     @Override
@@ -26,6 +31,7 @@ public class ReceivePingBv extends OneShotBehaviour{
         MessageTemplate msgTemplate = MessageTemplate.and(
             MessageTemplate.MatchProtocol(protocol), 
             MessageTemplate.MatchPerformative(ACLMessage.INFORM));
+        this.myAgent.doWait(waitingTime);
         ACLMessage msg = this.myAgent.receive(msgTemplate);
         if (msg != null) {
             senders.add(msg.getSender().getLocalName());

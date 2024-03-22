@@ -9,6 +9,7 @@ import eu.su.mas.dedaleEtu.mas.agents.dummies.DummyMovingAgent;
 import eu.su.mas.dedaleEtu.mas.agents.dummies.DummyTankerAgent;
 import eu.su.mas.dedaleEtu.mas.agents.dummies.explo.ExploreCoopAgent;
 import eu.su.mas.dedaleEtu.mas.agents.dummies.explo.ExploreSoloAgent;
+import eu.su.mas.dedaleEtu.perso.agents.ExploPingA;
 import eu.su.mas.dedaleEtu.perso.agents.FirstA;
 import eu.su.mas.dedale.mas.AbstractDedaleAgent;
 import eu.su.mas.dedale.mas.agents.GateKeeperAgent;
@@ -341,13 +342,13 @@ public class Principal {
 		Assert.assertNotNull("This container does not exist",c);
 
 		//2) Give the name of your agent, MUST be the same as the one given in the entities file.
-		agentName="FA1";
+		agentName="ExP1";
 
 		//3) If you want to give specific parameters to your agent, add them here
-		Object [] entityParametersExplo1={"FA2"};
+		Object [] entityParametersExplo1={"ExP2"};
 
 		//4) Give the class name of your agent to let the system instantiate it
-		ag=createNewDedaleAgent(c, agentName,FirstA.class.getName(), entityParametersExplo1);
+		ag=createNewDedaleAgent(c, agentName,ExploPingA.class.getName(), entityParametersExplo1);
 		//ag=createNewDedaleAgent(c, agentName, ExploreCoopAgent.class.getName(), entityParametersExplo1);//ExploreSoloAgent
 		agentList.add(ag);
 
@@ -359,13 +360,13 @@ public class Principal {
 		Assert.assertNotNull("This container does not exist",c);
 
 		//2) Give the name of your agent, MUST be the same as the one given in the entities file.
-		agentName="FA2";
+		agentName="ExP2";
 
 		//3) If you want to give specific parameters to your agent, add them here
-		Object [] entityParametersExplo2={"FA1"};
+		Object [] entityParametersExplo2={"ExP1"};
 
 		//4) Give the class name of your agent to let the system instantiate it
-		ag=createNewDedaleAgent(c, agentName, FirstA.class.getName(), entityParametersExplo2);//ExploreSoloAgent
+		ag=createNewDedaleAgent(c, agentName, ExploPingA.class.getName(), entityParametersExplo2);//ExploreSoloAgent
 		agentList.add(ag);
 
 		
