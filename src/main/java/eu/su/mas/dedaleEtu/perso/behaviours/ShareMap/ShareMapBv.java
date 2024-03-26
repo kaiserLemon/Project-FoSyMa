@@ -10,7 +10,7 @@ import jade.core.behaviours.Behaviour;
 import jade.core.behaviours.FSMBehaviour;
 import jade.core.behaviours.TickerBehaviour;
 
-public class ShareMapBv extends TickerBehaviour{
+public class ShareMapBv extends FSMBehaviour{
 
     private static final long serialVersionUID = 1L;
 
@@ -20,31 +20,27 @@ public class ShareMapBv extends TickerBehaviour{
     private List<String> listSenders = new ArrayList<>();
     private long waitingTime;
 
-    public ShareMapBv(Agent a, long period, long waitingTime, MapRepresentation myMap, List<String> list_agentsNames) {
-        super(a, period);
+    public ShareMapBv(Agent a, long waitingTime, MapRepresentation myMap, List<String> list_agentsNames) {
+        super(a);
         this.myMap = myMap;
         this.list_agentNames = list_agentsNames;
         this.waitingTime = waitingTime;
-    }
 
-    @Override
-    protected void onTick() {
-        FSMBehaviour fsm = new FSMBehaviour();
+        this.registerFirstState(new ReceivePingBv(myAgent, this.waitingTime, "PING", listSenders), "receivePing");
+        this.registerState(new SendPingBv(myAgent, list_agentNames, "PING"), "sendPing");
+        this.registerState(new ReceivePingBv(myAgent, this.waitingTime, "PONG", listSenders), "receivePong");
+        this.registerState(new SendPingBv(myAgent, listSenders, "PONG"), "sendPong");
+        this.registerLastState(new SendMapBv(myAgent, myMap, listSenders), "sendMap");
+        this.registerLastState(new ReceiveMapBv(myAgent, this.waitingTime, myMap), "receiveMap");
+        this.registerLastState(new EmptyBv(myAgent), "endSate");
 
-        fsm.registerFirstState(new ReceivePingBv(myAgent, this.waitingTime, "PING", listSenders), "receivePing");
-        fsm.registerState(new SendPingBv(myAgent, list_agentNames, "PING"), "sendPing");
-        fsm.registerState(new ReceivePingBv(myAgent, this.waitingTime, "PONG", listSenders), "receivePong");
-        fsm.registerState(new SendPingBv(myAgent, listSenders, "PONG"), "sendPong");
-        fsm.registerLastState(new SendMapBv(myAgent, myMap, listSenders), "sendMap");
-        fsm.registerLastState(new ReceiveMapBv(myAgent, this.waitingTime, myMap), "receiveMap");
-        fsm.registerLastState(new EmptyBv(myAgent), "endSate");
+        this.registerTransition("receivePing", "sendPing", 0);
+        this.registerTransition("receivePing", "sendPong", 1);
+        this.registerDefaultTransition("sendPing", "receivePoing");
+        this.registerDefaultTransition("sendPong", "receiveMap");
+        this.registerTransition("receivePong", "sendMap", 1);
+        this.registerTransition("receivePong", "enState", 0);
 
-        fsm.registerTransition("receivePing", "sendPing", 0);
-        fsm.registerTransition("receivePing", "sendPong", 1);
-        fsm.registerDefaultTransition("sendPing", "receivePoing");
-        fsm.registerDefaultTransition("sendPong", "receiveMap");
-        fsm.registerTransition("receivePong", "sendMap", 1);
-        fsm.registerTransition("receivePong", "enState", 0);
     }
     
 }
