@@ -1,4 +1,4 @@
-package eu.su.mas.dedaleEtu.perso.behaviours;
+package eu.su.mas.dedaleEtu.perso.behaviours.Hunt;
 
 import java.util.List;
 import java.util.Iterator;
@@ -10,8 +10,8 @@ import eu.su.mas.dedale.env.Observation;
 import eu.su.mas.dedale.env.gs.gsLocation;
 import eu.su.mas.dedale.mas.AbstractDedaleAgent;
 
-import eu.su.mas.dedaleEtu.mas.knowledge.MapRepresentation;
-import eu.su.mas.dedaleEtu.mas.knowledge.MapRepresentation.MapAttribute;
+import eu.su.mas.dedaleEtu.perso.knowledge.MapRepresentation;
+import eu.su.mas.dedaleEtu.perso.knowledge.MapRepresentation.MapAttribute;
 import jade.core.Agent;
 import jade.core.behaviours.SimpleBehaviour;
 import jade.lang.acl.ACLMessage;

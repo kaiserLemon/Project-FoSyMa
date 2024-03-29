@@ -12,6 +12,7 @@ import eu.su.mas.dedale.mas.AbstractDedaleAgent;
 
 import eu.su.mas.dedale.mas.agent.knowledge.MapRepresentation;
 import eu.su.mas.dedale.mas.agent.knowledge.MapRepresentation.MapAttribute;
+import eu.su.mas.dedaleEtu.perso.behaviours.ShareMap.FirstShareMapBv;
 import jade.core.behaviours.SimpleBehaviour;
 import jade.lang.acl.ACLMessage;
 import jade.lang.acl.MessageTemplate;

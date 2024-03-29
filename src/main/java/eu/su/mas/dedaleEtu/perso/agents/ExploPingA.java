@@ -5,14 +5,14 @@ import java.util.List;
 
 import eu.su.mas.dedale.mas.AbstractDedaleAgent;
 import eu.su.mas.dedale.mas.agent.behaviours.platformManagment.startMyBehaviours;
-import eu.su.mas.dedaleEtu.mas.knowledge.MapRepresentation;
-import eu.su.mas.dedaleEtu.perso.behaviours.FirstExploBv;
+import eu.su.mas.dedaleEtu.perso.knowledge.MapRepresentation;
+import eu.su.mas.dedaleEtu.perso.behaviours.InitPingBv;
 import jade.core.behaviours.Behaviour;
 
 public class ExploPingA extends AbstractDedaleAgent{
 
     private static final long serialVersionUID = 1L;
-
+    
     private MapRepresentation myMap;
 
     protected void setup(){
@@ -34,12 +34,10 @@ public class ExploPingA extends AbstractDedaleAgent{
         }
 
         List<Behaviour> lb = new ArrayList<Behaviour>();
-
-        lb.add(new FirstExploBv(this, this.myMap, list_agentNames));
+        lb.add(new InitPingBv(this, this.myMap, list_agentNames));
 
         addBehaviour(new startMyBehaviours(this, lb));
 
         System.out.println("the agent" + this.getLocalName() + " is started");
     }
-    
 }

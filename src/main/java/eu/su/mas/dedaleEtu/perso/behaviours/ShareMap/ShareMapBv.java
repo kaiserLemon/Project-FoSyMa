@@ -3,7 +3,7 @@ package eu.su.mas.dedaleEtu.perso.behaviours.ShareMap;
 import java.util.ArrayList;
 import java.util.List;
 
-import eu.su.mas.dedaleEtu.mas.knowledge.MapRepresentation;
+import eu.su.mas.dedaleEtu.perso.knowledge.MapRepresentation;
 import eu.su.mas.dedaleEtu.perso.behaviours.EmptyBv;
 import jade.core.Agent;
 import jade.core.behaviours.Behaviour;
@@ -39,7 +39,7 @@ public class ShareMapBv extends FSMBehaviour{
         this.registerDefaultTransition("sendPing", "receivePoing");
         this.registerDefaultTransition("sendPong", "receiveMap");
         this.registerTransition("receivePong", "sendMap", 1);
-        this.registerTransition("receivePong", "enState", 0);
+        this.registerTransition("receivePong", "endState", 0);
 
     }
     

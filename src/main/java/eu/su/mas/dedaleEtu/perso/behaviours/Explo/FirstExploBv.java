@@ -1,4 +1,4 @@
-package eu.su.mas.dedaleEtu.perso.behaviours;
+package eu.su.mas.dedaleEtu.perso.behaviours.Explo;
 
 import java.io.IOException;
 import java.util.Iterator;

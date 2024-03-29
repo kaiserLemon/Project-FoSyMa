@@ -30,6 +30,7 @@ public class SendPingBv extends OneShotBehaviour{
             msg.addReceiver(new AID(agent, AID.ISLOCALNAME));
         }
         ((AbstractDedaleAgent)this.myAgent).sendMessage(msg);
+        System.out.println(this.myAgent.getLocalName() + " : sent " + protocol + " to " + receivers);
     }
     
 }

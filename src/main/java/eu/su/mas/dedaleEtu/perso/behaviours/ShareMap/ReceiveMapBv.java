@@ -1,8 +1,8 @@
 package eu.su.mas.dedaleEtu.perso.behaviours.ShareMap;
 
 import dataStructures.serializableGraph.SerializableSimpleGraph;
-import eu.su.mas.dedaleEtu.mas.knowledge.MapRepresentation.MapAttribute;
-import eu.su.mas.dedaleEtu.mas.knowledge.MapRepresentation;
+import eu.su.mas.dedaleEtu.perso.knowledge.MapRepresentation.MapAttribute;
+import eu.su.mas.dedaleEtu.perso.knowledge.MapRepresentation;
 import jade.core.Agent;
 import jade.core.behaviours.OneShotBehaviour;
 import jade.lang.acl.ACLMessage;
@@ -42,10 +42,6 @@ public class ReceiveMapBv extends OneShotBehaviour{
         }
         this.myMap.mergeMap(sgreceived);
     }
-  }
-
-  public MapRepresentation getMap(){
-    return myMap;
   }
 
 }
